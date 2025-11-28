@@ -3,7 +3,6 @@
 function getComputerInput()
 {
     let random_number = Math.random();
-    console.log(random_number);
 
     if (random_number <= 0.3)
     {
@@ -42,59 +41,79 @@ function play()
     if (playerInput === "rock" && computerInput === "rock")
     {
         console.log("Unentschieden")
+        return
     }
     if (playerInput === "rock" && computerInput === "paper")
     {
         console.log("PC gewinnt")
+        return "pc"
     }
     if (playerInput === "rock" && computerInput === "scissors")
     {
         console.log("Player gewinnt")
+        return "player"
     }
 
     if (playerInput === "paper" && computerInput === "rock")
     {
         console.log("Player gewinnt")
+        return "player"
     }
     if (playerInput === "paper" && computerInput === "paper")
     {
         console.log("Unentschieden")
+        return
     }
     if (playerInput === "paper" && computerInput === "scissors")
     {
         console.log("PC gewinnt")
+        return "pc"
     }
 
     if (playerInput === "scissors" && computerInput === "rock")
     {
         console.log("PC gewinnt")
+        return "pc"
     }
     if (playerInput === "scissors" && computerInput === "paper")
     {
         console.log("Player gewinnt")
+        return "player"
     }
     if (playerInput === "scissors" && computerInput === "scissors")
     {
         console.log("Unentschieden")
+        return 
     }
-
 }
 
-let weiter = true
+let pScore = 0
+let pcScore = 0
 
-while (weiter)
+for (let i = 0; i < 5; i++)
 {
-    play()
-    let x = prompt("Weiter? y/n")
-    if (x === "y")
+    
+    let score = play()
+    console.log(score)
+    if (score === "pc")
     {
-        weiter = true
+        pcScore += 1
+        console.log("------------------")
+        console.log("Player: " + pScore + " / Computer: " + pcScore)
+        console.log("------------------")
     }
-    else
+    else if (score === "player")
     {
-        weiter = false
-    }   
+        pScore += 1
+        console.log("------------------")
+        console.log("Player: " + pScore + " / Computer: " + pcScore)
+        console.log("------------------")
+    }
+
 }
 
 
 
+
+
+    
